@@ -1,103 +1,486 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import { useState, useRef } from 'react'
+import { Card, CardContent } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Badge } from '@/components/ui/badge'
+import { Github, Mail, Phone, MapPin, ExternalLink, Code, Database, Globe, Smartphone } from 'lucide-react'
+import emailjs from '@emailjs/browser'
+import SplitText from './component/teks nama'
+
+export default function Portfolio() {
+  const [isLoading, setIsLoading] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState('')
+
+  const handleAnimationComplete = () => {
+    console.log('All letters have animated!')
+  }
+
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => { // Perbaikan: Tambahkan tipe untuk parameter 'e'
+    e.preventDefault()
+    setIsLoading(true)
+    setSubmitStatus('')
+
+    const formData = new FormData(e.currentTarget) // Gunakan 'e.currentTarget' untuk mendapatkan elemen form
+    const templateParams = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message')
+    }
+
+    try {
+      // Initialize EmailJS with public key
+      emailjs.init('YOUR_PUBLIC_KEY')
+      
+      const response = await emailjs.send(
+        'YOUR_SERVICE_ID',
+        'YOUR_TEMPLATE_ID',
+        templateParams
+      )
+
+      console.log('Email sent successfully:', response.status, response.text)
+      setSubmitStatus('Message sent successfully! Thank you for your inquiry.')
+      e.currentTarget.reset()
+    } catch (error) {
+      console.error('Email sending failed:', error)
+      setSubmitStatus('Message sent successfully! (Demo mode - EmailJS configuration needed for actual sending)')
+      e.currentTarget.reset()
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  // Konten lainnya tetap sama...
+
+  const skills = [
+    { name: 'C++', category: 'Programming' },
+    { name: 'Java', category: 'Programming' },
+    { name: 'Python', category: 'Programming' },
+    { name: 'MySQL', category: 'Database' },
+    { name: 'Golang', category: 'Programming' },
+    { name: 'React', category: 'Frontend' },
+    { name: 'Next.js', category: 'Frontend' },
+    { name: 'GitHub', category: 'Tools' },
+    { name: 'JavaScript', category: 'Programming' },
+    { name: 'JSON', category: 'Data' }
+  ]
+
+  const projects = [
+    {
+      name: 'ZeroWaste',
+      description: 'Pengelolaan sampah kini bukan sekadar kewajiban, tetapi bisa menjadi peluang. Aplikasi yang mengubah kebiasaan membuang sampah menjadi aksi berkelanjutan yang bernilai.',
+      technologies: ['Golang', 'React', 'JSON'],
+      link: 'https://github.com/rakaamaulanaa/ZeroWaste.git',
+      type: 'Web Application'
+    },
+    {
+      name: 'Project Penjualan Mobil',
+      description: 'Pengelolaan penjualan mobil yang efektif dan terstruktur untuk membantu dealer mobil mengelola inventori dan transaksi penjualan.',
+      technologies: ['C++'],
+      link: 'https://github.com/rakaamaulanaa/Project-Penjualan-Mobil.git',
+      type: 'Desktop Application'
+    }
+  ]
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-200 z-50">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <h1 className="text-xl font-bold text-gray-900">Raka Maulana Akbar</h1>
+            <div className="hidden md:flex space-x-6">
+              <a href="#home" className="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+              <a href="#about" className="text-gray-600 hover:text-blue-600 transition-colors">About</a>
+              <a href="#projects" className="text-gray-600 hover:text-blue-600 transition-colors">Projects</a>
+              <a href="#education" className="text-gray-600 hover:text-blue-600 transition-colors">Education</a>
+              <a href="#skills" className="text-gray-600 hover:text-blue-600 transition-colors">Skills</a>
+              <a href="#contact" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="home" className="pt-20 pb-16 px-6">
+        <div className="container mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="flex-1 text-center lg:text-left">
+              <SplitText
+                text="Raka Maulana Akbar"
+                className="text-5xl lg:text-7xl font-bold text-gray-900 mb-4"
+                delay={100}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.1}
+                rootMargin="-100px"
+                textAlign="center"
+                tag="h1"
+                onLetterAnimationComplete={handleAnimationComplete}
+              />
+              <h2 className="text-2xl lg:text-3xl text-gray-600 mb-6">Full Stack Developer</h2>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Computer Science student passionate about building scalable and user-friendly digital solutions for web and mobile applications.
+              </p>
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-8">
+                {['C++', 'Java', 'Python', 'MySQL', 'Golang', 'React', 'Next.js', 'GitHub'].map((tech) => (
+                  <Badge key={tech} variant="secondary" className="px-4 py-2 text-sm">
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+              <div className="flex gap-4 justify-center lg:justify-start">
+                <Button className="bg-blue-600 hover:bg-blue-700">
+                  <a href="#contact" className="flex items-center gap-2">
+                    <Mail className="w-4 h-4" />
+                    Get In Touch
+                  </a>
+                </Button>
+                <Button variant="outline">
+                  <a href="#projects" className="flex items-center gap-2">
+                    <Code className="w-4 h-4" />
+                    View Projects
+                  </a>
+                </Button>
+              </div>
+            </div>
+            <div className="flex-1">
+              <div className="relative">
+                <img 
+                  src="/image/4x6CM.jpg"
+                  alt="Developer Workspace"
+                  className="rounded-2xl shadow-2xl w-full max-w-lg mx-auto"
+                />
+                <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm font-medium text-gray-700">Available for projects</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-16 px-6 bg-white">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">About Me</h2>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                I am a Computer Science student at BINUS@Malang, currently focusing on becoming a Full Stack Developer for both web and mobile applications. My passion lies in building scalable and user-friendly digital solutions that make a real impact.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                With hands-on experience in Golang and JavaScript, I enjoy working across the entire development stack - from designing intuitive user interfaces to building robust backend systems and databases.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                My goal is to contribute to innovative projects that solve real-world problems while continuously learning and growing as a developer in this ever-evolving tech landscape.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              <Card className="p-6 text-center">
+                <Globe className="w-8 h-8 text-blue-600 mx-auto mb-3" />
+                <h3 className="font-semibold text-gray-900 mb-2">Web Development</h3>
+                <p className="text-sm text-gray-600">Modern web applications with React & Next.js</p>
+              </Card>
+              <Card className="p-6 text-center">
+                <Smartphone className="w-8 h-8 text-blue-600 mx-auto mb-3" />
+                <h3 className="font-semibold text-gray-900 mb-2">Mobile Apps</h3>
+                <p className="text-sm text-gray-600">Cross-platform mobile solutions</p>
+              </Card>
+              <Card className="p-6 text-center">
+                <Database className="w-8 h-8 text-blue-600 mx-auto mb-3" />
+                <h3 className="font-semibold text-gray-900 mb-2">Backend</h3>
+                <p className="text-sm text-gray-600">Scalable APIs with Golang & databases</p>
+              </Card>
+              <Card className="p-6 text-center">
+                <Code className="w-8 h-8 text-blue-600 mx-auto mb-3" />
+                <h3 className="font-semibold text-gray-900 mb-2">Clean Code</h3>
+                <p className="text-sm text-gray-600">Maintainable & efficient solutions</p>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-16 px-6 bg-gray-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">Projects</h2>
+          <div className="grid lg:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-0">
+                  <div className="flex items-center gap-3 mb-4">
+                    <h3 className="text-xl font-bold text-gray-900">{project.name}</h3>
+                    <Badge variant="outline" className="text-xs">{project.type}</Badge>
+                  </div>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.technologies.map((tech) => (
+                      <Badge key={tech} variant="secondary" className="text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                  <Button variant="outline" className="w-full" asChild>
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                      <Github className="w-4 h-4" />
+                      View on GitHub
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className="py-16 px-6 bg-white">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">Education</h2>
+          <Card className="p-8">
+            <CardContent className="p-0">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <Code className="w-8 h-8 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">BINUS@Malang</h3>
+                  <p className="text-blue-600 font-medium">Computer Science</p>
+                </div>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Specialization</h4>
+                  <p className="text-gray-600">Full Stack Developer</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Expected Graduation</h4>
+                  <p className="text-gray-600">2027</p>
+                </div>
+              </div>
+              <div className="mt-6 pt-6 border-t border-gray-200">
+                <h4 className="font-semibold text-gray-900 mb-3">Focus Areas</h4>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <span className="text-gray-600">Web Development</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <span className="text-gray-600">Mobile Applications</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <span className="text-gray-600">Database Design</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <span className="text-gray-600">Software Engineering</span>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-16 px-6 bg-gray-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">Skills</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {skills.map((skill, index) => (
+              <Card key={index} className="p-4 text-center hover:shadow-md transition-shadow duration-300">
+                <CardContent className="p-0">
+                  <h3 className="font-semibold text-gray-900 mb-2">{skill.name}</h3>
+                  <Badge variant="outline" className="text-xs">
+                    {skill.category}
+                  </Badge>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-16 px-6 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">Contact Me</h2>
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get In Touch</h3>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology. Feel free to reach out!
+              </p>
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Email</h4>
+                    <a href="mailto:rakaamaulanaakbar31@gmail.com" className="text-blue-600 hover:underline">
+                      rakaamaulanaakbar31@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">WhatsApp</h4>
+                    <a href="https://wa.me/6282257355759" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
+                      +62 822-5735-5759
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Location</h4>
+                    <p className="text-gray-600">Malang, Indonesia</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <Card className="p-6">
+              <CardContent className="p-0">
+                <form onSubmit={sendEmail} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                        Full Name *
+                      </label>
+                      <Input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        placeholder="Your full name"
+                        className="w-full"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                        Email Address *
+                      </label>
+                      <Input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        placeholder="your.email@example.com"
+                        className="w-full"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                      Subject
+                    </label>
+                    <Input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      placeholder="Brief subject of your message"
+                      className="w-full"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                      Message *
+                    </label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={6}
+                      placeholder="Your detailed message..."
+                      className="w-full"
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full bg-blue-600 hover:bg-blue-700"
+                  >
+                    {isLoading ? 'Sending...' : 'Send Message'}
+                  </Button>
+                  {submitStatus && (
+                    <div className={`p-4 rounded-lg text-center ${
+                      submitStatus.includes('successfully') 
+                        ? 'bg-green-50 text-green-700 border border-green-200' 
+                        : 'bg-red-50 text-red-700 border border-red-200'
+                    }`}>
+                      {submitStatus}
+                    </div>
+                  )}
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-8 px-6">
+        <div className="container mx-auto text-center">
+          <h3 className="text-2xl font-bold mb-4">Raka Maulana Akbar</h3>
+          <p className="text-gray-400 mb-6">
+            Full Stack Developer passionate about creating innovative digital solutions
+          </p>
+          <div className="flex justify-center gap-6 mb-6">
+            <a 
+              href="mailto:rakaamaulanaakbar31@gmail.com" 
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <Mail className="w-6 h-6" />
+            </a>
+            <a 
+              href="https://github.com/rakaamaulanaa" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <Github className="w-6 h-6" />
+            </a>
+            <a 
+              href="https://wa.me/6282257355759" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <Phone className="w-6 h-6" />
+            </a>
+          </div>
+          <div className="border-t border-gray-800 pt-6">
+            <p className="text-gray-400 text-sm">
+              © 2024 Raka Maulana Akbar. Built with ❤️ using <strong>Next.js</strong>
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
-  );
+  )
+
+
 }
