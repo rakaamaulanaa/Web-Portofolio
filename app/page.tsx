@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/badge'
 import { Github, Mail, Phone, MapPin, ExternalLink, Code, Database, Globe, Smartphone } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 import SplitText from './component/teks nama'
+import Image from 'next/image'
 
 export default function Portfolio() {
   const [isLoading, setIsLoading] = useState(false)
@@ -152,10 +153,13 @@ export default function Portfolio() {
             </div>
             <div className="flex-1">
               <div className="relative">
-                <img 
+                <Image
                   src="/image/4x6CM.jpg"
                   alt="Developer Workspace"
+                  width={512}
+                  height={640}
                   className="rounded-2xl shadow-2xl w-full max-w-lg mx-auto"
+                  priority
                 />
                 <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
                   <div className="flex items-center gap-3">
@@ -324,7 +328,7 @@ export default function Portfolio() {
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Get In Touch</h3>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology. Feel free to reach out!
+                I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat about technology. Feel free to reach out!
               </p>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">

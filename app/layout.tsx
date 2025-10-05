@@ -13,7 +13,7 @@ import { ReactNode } from "react"
 export default function RootLayout({ children }: { children: ReactNode }) { // Perbaikan: Tambahkan tipe untuk 'children'
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
