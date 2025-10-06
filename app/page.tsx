@@ -83,6 +83,13 @@ export default function Portfolio() {
       technologies: ['C++'],
       link: 'https://github.com/rakaamaulanaa/Project-Penjualan-Mobil.git',
       type: 'Program'
+    },
+    {
+      name: 'Project KayoeMoeda',
+      description: 'Sistem jual beli furniture untuk pelanggan dan penyimpanan data pribadi pelanggan serta data usaha yang hanya dapat diakses admin secara terstruktur dan tertata.',
+      technologies: ['Java'],
+      link: 'https://github.com/rakaamaulanaa/Kayoemoeda.git',
+      type: 'Java Application'
     }
   ]
 
