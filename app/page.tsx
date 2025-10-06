@@ -186,14 +186,8 @@ export default function Portfolio() {
           <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">About Me</h2>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                I am a Computer Science student at BINUS@Malang, currently focusing on becoming a Full Stack Developer for both web and mobile applications. My passion lies in building scalable and user-friendly digital solutions that make a real impact.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                With hands-on experience in Golang and JavaScript, I enjoy working across the entire development stack - from designing intuitive user interfaces to building robust backend systems and databases.
-              </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                My goal is to contribute to innovative projects that solve real-world problems while continuously learning and growing as a developer in this ever-evolving tech landscape.
+                I am a Computer Science student at BINUS@Malang, currently focusing on becoming a Full Stack Developer for both web and mobile applications. I have worked on several projects using C++, Java, Python, MySQL, Go, React, and Next.js. I am also optimistic about working on more projects in the future by continuing to learn new programming languages as well as deepening my knowledge of those I have already studied.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-6">
@@ -212,11 +206,7 @@ export default function Portfolio() {
                 <h3 className="font-semibold text-gray-900 mb-2">Backend</h3>
                 <p className="text-sm text-gray-700">Scalable APIs with Golang & databases</p>
               </Card>
-              <Card className="p-6 text-center bg-white border-gray-200">
-                <Code className="w-8 h-8 text-gray-900 mx-auto mb-3" />
-                <h3 className="font-semibold text-gray-900 mb-2">Clean Code</h3>
-                <p className="text-sm text-gray-700">Maintainable & efficient solutions</p>
-              </Card>
+              
             </div>
           </div>
         </div>
