@@ -329,7 +329,7 @@ export default function Portfolio() {
             <div>
               <h3 className="text-2xl font-bold text-white mb-6">Get In Touch</h3>
               <p className="text-lg text-gray-200 mb-8 leading-relaxed">
-                I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat about technology. Feel free to reach out!
+                feel free to reach out!
               </p>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
@@ -462,7 +462,7 @@ export default function Portfolio() {
         <div className="container mx-auto text-center">
           <h3 className="text-2xl font-bold mb-4">Raka Maulana Akbar</h3>
           <p className="text-gray-300 mb-6">
-            Full Stack Developer passionate about creating innovative digital solutions
+            Full Stack Developer
           </p>
           <div className="flex justify-center gap-6 mb-6">
             <a 
@@ -490,7 +490,7 @@ export default function Portfolio() {
           </div>
           <div className="border-t border-gray-800 pt-6">
             <p className="text-gray-300 text-sm">
-              © 2024 Raka Maulana Akbar. Built with ❤️ using <strong>Next.js</strong>
+              © 2024 Raka Maulana Akbar. Built by <strong>Next.js</strong>
             </p>
           </div>
         </div>
