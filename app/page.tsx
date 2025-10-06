@@ -94,19 +94,19 @@ export default function Portfolio() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-black to-gray-900">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-gray-200 z-50">
+      <nav className="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-gray-800 z-50">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold text-gray-900">Portofolio</h1>
+            <h1 className="text-xl font-bold text-white">Portofolio</h1>
             <div className="hidden md:flex space-x-6">
-              <a href="#home" className="text-gray-900 hover:text-gray-600 transition-colors">Home</a>
-              <a href="#about" className="text-gray-900 hover:text-gray-600 transition-colors">About</a>
-              <a href="#projects" className="text-gray-900 hover:text-gray-600 transition-colors">Projects</a>
-              <a href="#education" className="text-gray-900 hover:text-gray-600 transition-colors">Education</a>
-              <a href="#skills" className="text-gray-900 hover:text-gray-600 transition-colors">Skills</a>
-              <a href="#contact" className="text-gray-900 hover:text-gray-600 transition-colors">Contact</a>
+              <a href="#home" className="text-white hover:text-gray-300 transition-colors">Home</a>
+              <a href="#about" className="text-white hover:text-gray-300 transition-colors">About</a>
+              <a href="#projects" className="text-white hover:text-gray-300 transition-colors">Projects</a>
+              <a href="#education" className="text-white hover:text-gray-300 transition-colors">Education</a>
+              <a href="#skills" className="text-white hover:text-gray-300 transition-colors">Skills</a>
+              <a href="#contact" className="text-white hover:text-gray-300 transition-colors">Contact</a>
             </div>
           </div>
         </div>
@@ -118,8 +118,8 @@ export default function Portfolio() {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1 text-center lg:text-left">
               <SplitText
-                text="Raka Maulana Akbar"
-                className="text-5xl lg:text-7xl font-bold text-gray-900 mb-4"
+                text="Portofolio"
+                className="text-6xl lg:text-8xl font-bold text-white mb-4"
                 delay={100}
                 duration={0.6}
                 ease="power3.out"
@@ -132,8 +132,8 @@ export default function Portfolio() {
                 tag="h1"
                 onLetterAnimationComplete={handleAnimationComplete}
               />
-              <h2 className="text-2xl lg:text-3xl text-gray-800 mb-6">Full Stack Developer</h2>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              <h2 className="text-2xl lg:text-3xl text-white mb-6">Full Stack Developer</h2>
+              <p className="text-lg text-gray-200 mb-8 leading-relaxed">
                 Computer Science student at BINUS@Malang specializing in Full Stack Development for web and mobile applications
               </p>
               <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-8">
@@ -163,15 +163,15 @@ export default function Portfolio() {
                 <Image
                   src="/image/4x6CM.jpg"
                   alt="Developer Workspace"
-                  width={512}
-                  height={640}
-                  className="rounded-2xl shadow-2xl w-full max-w-lg mx-auto"
+                  width={320}
+                  height={320}
+                  className="rounded-full shadow-2xl w-64 h-64 object-cover mx-auto lg:mx-0"
                   priority
                 />
-                <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg border border-gray-200">
+                <div className="absolute -bottom-6 -right-6 bg-black p-4 rounded-lg shadow-lg border border-gray-600">
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-gray-800">Available for projects</span>
+                    <span className="text-sm font-medium text-white">Available for projects</span>
                   </div>
                 </div>
               </div>
@@ -181,30 +181,30 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 px-6 bg-white">
+      <section id="about" className="py-16 px-6 bg-black">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">About Me</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-white mb-12">About Me</h2>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-lg text-gray-200 leading-relaxed">
                 I am a Computer Science student at BINUS@Malang, currently focusing on becoming a Full Stack Developer for both web and mobile applications. I have worked on several projects using C++, Java, Python, MySQL, Go, React, and Next.js. I am also optimistic about working on more projects in the future by continuing to learn new programming languages as well as deepening my knowledge of those I have already studied.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-6">
-              <Card className="p-6 text-center bg-white border-gray-200">
-                <Globe className="w-8 h-8 text-gray-900 mx-auto mb-3" />
-                <h3 className="font-semibold text-gray-900 mb-2">Web Development</h3>
-                <p className="text-sm text-gray-700">Modern web applications with React & Next.js</p>
+              <Card className="p-6 text-center bg-gray-900 border-gray-800">
+                <Globe className="w-8 h-8 text-white mx-auto mb-3" />
+                <h3 className="font-semibold text-white mb-2">Web Development</h3>
+                <p className="text-sm text-gray-200">Modern web applications with React & Next.js</p>
               </Card>
-              <Card className="p-6 text-center bg-white border-gray-200">
-                <Smartphone className="w-8 h-8 text-gray-900 mx-auto mb-3" />
-                <h3 className="font-semibold text-gray-900 mb-2">Mobile Apps</h3>
-                <p className="text-sm text-gray-700">Cross-platform mobile solutions</p>
+              <Card className="p-6 text-center bg-gray-900 border-gray-800">
+                <Smartphone className="w-8 h-8 text-white mx-auto mb-3" />
+                <h3 className="font-semibold text-white mb-2">Mobile Apps</h3>
+                <p className="text-sm text-gray-200">Cross-platform mobile solutions</p>
               </Card>
-              <Card className="p-6 text-center bg-white border-gray-200">
-                <Database className="w-8 h-8 text-gray-900 mx-auto mb-3" />
-                <h3 className="font-semibold text-gray-900 mb-2">Backend</h3>
-                <p className="text-sm text-gray-700">Scalable APIs with Golang & databases</p>
+              <Card className="p-6 text-center bg-gray-900 border-gray-800">
+                <Database className="w-8 h-8 text-white mx-auto mb-3" />
+                <h3 className="font-semibold text-white mb-2">Backend</h3>
+                <p className="text-sm text-gray-200">Scalable APIs with Golang & databases</p>
               </Card>
               
             </div>
@@ -213,18 +213,18 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-16 px-6 bg-white">
+      <section id="projects" className="py-16 px-6 bg-black">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">Projects</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-white mb-12">Projects</h2>
           <div className="grid lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300 bg-white border-gray-200">
+              <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-900 border-gray-800">
                 <CardContent className="p-0">
                   <div className="flex items-center gap-3 mb-4">
-                    <h3 className="text-xl font-bold text-gray-900">{project.name}</h3>
-                    <Badge variant="outline" className="text-xs border-gray-300 text-gray-700">{project.type}</Badge>
+                    <h3 className="text-xl font-bold text-white">{project.name}</h3>
+                    <Badge variant="outline" className="text-xs border-gray-600 text-white">{project.type}</Badge>
                   </div>
-                  <p className="text-gray-700 mb-6 leading-relaxed">{project.description}</p>
+                  <p className="text-gray-200 mb-6 leading-relaxed">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.map((tech) => (
                       <Badge key={tech} variant="secondary" className="text-xs">
@@ -247,48 +247,48 @@ export default function Portfolio() {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-16 px-6 bg-white">
+      <section id="education" className="py-16 px-6 bg-black">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">Education</h2>
-          <Card className="p-8 bg-white border-gray-200">
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-white mb-12">Education</h2>
+          <Card className="p-8 bg-gray-900 border-gray-800">
             <CardContent className="p-0">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center">
                   <Code className="w-8 h-8 text-black" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">BINUS@Malang</h3>
-                  <p className="text-gray-900 font-medium">Computer Science</p>
+                  <h3 className="text-2xl font-bold text-white">BINUS@Malang</h3>
+                  <p className="text-white font-medium">Computer Science</p>
                 </div>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Specialization</h4>
-                  <p className="text-gray-700">Full Stack Developer</p>
+                  <h4 className="font-semibold text-white mb-2">Specialization</h4>
+                  <p className="text-gray-200">Full Stack Developer</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Expected Graduation</h4>
-                  <p className="text-gray-700">2027</p>
+                  <h4 className="font-semibold text-white mb-2">Expected Graduation</h4>
+                  <p className="text-gray-200">2027</p>
                 </div>
               </div>
               <div className="mt-6 pt-6 border-t border-gray-700">
-                <h4 className="font-semibold text-gray-900 mb-3">Focus Areas</h4>
+                <h4 className="font-semibold text-white mb-3">Focus Areas</h4>
                 <div className="grid md:grid-cols-2 gap-3">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-white rounded-full"></div>
-                    <span className="text-gray-700">Web Development</span>
+                    <span className="text-gray-200">Web Development</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-white rounded-full"></div>
-                    <span className="text-gray-700">Mobile Applications</span>
+                    <span className="text-gray-200">Mobile Applications</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-white rounded-full"></div>
-                    <span className="text-gray-700">Database Design</span>
+                    <span className="text-gray-200">Database Design</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-white rounded-full"></div>
-                    <span className="text-gray-700">Software Engineering</span>
+                    <span className="text-gray-200">Software Engineering</span>
                   </div>
                 </div>
               </div>
@@ -298,15 +298,15 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-16 px-6 bg-white">
+      <section id="skills" className="py-16 px-6 bg-black">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">Skills</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-white mb-12">Skills</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {skills.map((skill, index) => (
-              <Card key={index} className="p-4 text-center hover:shadow-md transition-shadow duration-300 bg-white border-gray-200">
+              <Card key={index} className="p-4 text-center hover:shadow-md transition-shadow duration-300 bg-gray-900 border-gray-800">
                 <CardContent className="p-0">
-                  <h3 className="font-semibold text-gray-900 mb-2">{skill.name}</h3>
-                  <Badge variant="outline" className="text-xs border-gray-300 text-gray-700">
+                  <h3 className="font-semibold text-white mb-2">{skill.name}</h3>
+                  <Badge variant="outline" className="text-xs border-gray-600 text-white">
                     {skill.category}
                   </Badge>
                 </CardContent>
@@ -317,14 +317,14 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-6 bg-white">
+      <section id="contact" className="py-16 px-6 bg-black">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">Contact Me</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-white mb-12">Contact Me</h2>
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Info */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get In Touch</h3>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              <h3 className="text-2xl font-bold text-white mb-6">Get In Touch</h3>
+              <p className="text-lg text-gray-200 mb-8 leading-relaxed">
                 I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat about technology. Feel free to reach out!
               </p>
               <div className="space-y-6">
@@ -333,8 +333,8 @@ export default function Portfolio() {
                     <Mail className="w-6 h-6 text-black" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Email</h4>
-                    <a href="mailto:rakaamaulanaakbar31@gmail.com" className="text-gray-900 hover:underline">
+                    <h4 className="font-semibold text-white">Email</h4>
+                    <a href="mailto:rakaamaulanaakbar31@gmail.com" className="text-white hover:underline">
                       rakaamaulanaakbar31@gmail.com
                     </a>
                   </div>
@@ -344,8 +344,8 @@ export default function Portfolio() {
                     <Phone className="w-6 h-6 text-black" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">WhatsApp</h4>
-                    <a href="https://wa.me/6282257355759" className="text-gray-900 hover:underline" target="_blank" rel="noopener noreferrer">
+                    <h4 className="font-semibold text-white">WhatsApp</h4>
+                    <a href="https://wa.me/6282257355759" className="text-white hover:underline" target="_blank" rel="noopener noreferrer">
                       +62 822-5735-5759
                     </a>
                   </div>
@@ -355,20 +355,20 @@ export default function Portfolio() {
                     <MapPin className="w-6 h-6 text-black" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Location</h4>
-                    <p className="text-gray-700">Malang, Indonesia</p>
+                    <h4 className="font-semibold text-white">Location</h4>
+                    <p className="text-gray-200">Malang, Indonesia</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <Card className="p-6 bg-white border-gray-200">
+            <Card className="p-6 bg-gray-900 border-gray-800">
               <CardContent className="p-0">
                 <form onSubmit={sendEmail} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-800 mb-2">
+                      <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                         Full Name *
                       </label>
                       <Input
@@ -377,11 +377,11 @@ export default function Portfolio() {
                         name="name"
                         required
                         placeholder="Your full name"
-                        className="w-full bg-white border-gray-300 text-gray-900 placeholder-gray-500"
+                        className="w-full bg-black border-gray-700 text-white placeholder-gray-400"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-800 mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                         Email Address *
                       </label>
                       <Input
@@ -390,12 +390,12 @@ export default function Portfolio() {
                         name="email"
                         required
                         placeholder="your.email@example.com"
-                        className="w-full bg-white border-gray-300 text-gray-900 placeholder-gray-500"
+                        className="w-full bg-black border-gray-700 text-white placeholder-gray-400"
                       />
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-800 mb-2">
+                    <label htmlFor="subject" className="block text-sm font-medium text-white mb-2">
                       Subject
                     </label>
                     <Input
@@ -403,11 +403,11 @@ export default function Portfolio() {
                       id="subject"
                       name="subject"
                       placeholder="Brief subject of your message"
-                      className="w-full bg-white border-gray-300 text-gray-900 placeholder-gray-500"
+                      className="w-full bg-black border-gray-700 text-white placeholder-gray-400"
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-800 mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
                       Message *
                     </label>
                     <Textarea
@@ -416,7 +416,7 @@ export default function Portfolio() {
                       required
                       rows={6}
                       placeholder="Your detailed message..."
-                      className="w-full bg-white border-gray-300 text-gray-900 placeholder-gray-500"
+                      className="w-full bg-black border-gray-700 text-white placeholder-gray-400"
                     />
                   </div>
                   <Button
@@ -429,8 +429,8 @@ export default function Portfolio() {
                   {submitStatus && (
                     <div className={`p-4 rounded-lg text-center ${
                       submitStatus.includes('successfully') 
-                        ? 'bg-green-50 text-green-700 border border-green-200' 
-                        : 'bg-red-50 text-red-700 border border-red-200'
+                        ? 'bg-green-900 text-green-300 border border-green-700' 
+                        : 'bg-red-900 text-red-300 border border-red-700'
                     }`}>
                       {submitStatus}
                     </div>
@@ -443,16 +443,16 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white text-gray-900 py-8 px-6 border-t border-gray-200">
+      <footer className="bg-black text-white py-8 px-6">
         <div className="container mx-auto text-center">
           <h3 className="text-2xl font-bold mb-4">Raka Maulana Akbar</h3>
-          <p className="text-gray-700 mb-6">
+          <p className="text-gray-300 mb-6">
             Full Stack Developer passionate about creating innovative digital solutions
           </p>
           <div className="flex justify-center gap-6 mb-6">
             <a 
               href="mailto:rakaamaulanaakbar31@gmail.com" 
-              className="text-gray-700 hover:text-gray-900 transition-colors"
+              className="text-white hover:text-gray-300 transition-colors"
             >
               <Mail className="w-6 h-6" />
             </a>
@@ -460,7 +460,7 @@ export default function Portfolio() {
               href="https://github.com/rakaamaulanaa" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-gray-700 hover:text-gray-900 transition-colors"
+              className="text-white hover:text-gray-300 transition-colors"
             >
               <Github className="w-6 h-6" />
             </a>
@@ -468,13 +468,13 @@ export default function Portfolio() {
               href="https://wa.me/6282257355759" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-gray-700 hover:text-gray-900 transition-colors"
+              className="text-white hover:text-gray-300 transition-colors"
             >
               <Phone className="w-6 h-6" />
             </a>
           </div>
-          <div className="border-t border-gray-200 pt-6">
-            <p className="text-gray-600 text-sm">
+          <div className="border-t border-gray-800 pt-6">
+            <p className="text-gray-300 text-sm">
               © 2024 Raka Maulana Akbar. Built with ❤️ using <strong>Next.js</strong>
             </p>
           </div>
