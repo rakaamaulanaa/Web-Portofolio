@@ -134,7 +134,7 @@ export default function Portfolio() {
               />
               <h2 className="text-2xl lg:text-3xl text-gray-800 mb-6">Full Stack Developer</h2>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                Computer Science student passionate about building scalable and user-friendly digital solutions for web and mobile applications.
+                Computer Science student at BINUS@Malang specializing in Full Stack Development for web and mobile applications
               </p>
               <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-8">
                 {['C++', 'Java', 'Python', 'MySQL', 'Golang', 'React', 'Next.js', 'GitHub'].map((tech) => (
