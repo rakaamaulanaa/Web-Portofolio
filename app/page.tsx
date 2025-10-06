@@ -96,7 +96,7 @@ export default function Portfolio() {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-black to-gray-900">
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 pointer-events-none">
         <DarkVeil />
       </div>
       {/* Navigation */}
