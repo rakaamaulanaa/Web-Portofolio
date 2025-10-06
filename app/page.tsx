@@ -10,6 +10,7 @@ import { Github, Mail, Phone, MapPin, ExternalLink, Code, Database, Globe, Smart
 import emailjs from '@emailjs/browser'
 import SplitText from './component/teks nama'
 import Image from 'next/image'
+import DarkVeil from './component/background'
 
 export default function Portfolio() {
   const [isLoading, setIsLoading] = useState(false)
@@ -94,7 +95,10 @@ export default function Portfolio() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black to-gray-900">
+    <div className="relative min-h-screen bg-gradient-to-br from-black to-gray-900">
+      <div className="absolute inset-0 -z-10">
+        <DarkVeil />
+      </div>
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-gray-800 z-50">
         <div className="container mx-auto px-6 py-4">
