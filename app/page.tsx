@@ -118,7 +118,7 @@ export default function Portfolio() {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1 text-center lg:text-left">
               <SplitText
-                text="Portofolio"
+                text="RAKA MAULANA AKBAR"
                 className="text-6xl lg:text-8xl font-bold text-white mb-4"
                 delay={100}
                 duration={0.6}
@@ -163,9 +163,9 @@ export default function Portfolio() {
                 <Image
                   src="/image/4x6CM.jpg"
                   alt="Developer Workspace"
-                  width={320}
-                  height={320}
-                  className="rounded-full shadow-2xl w-64 h-64 object-cover mx-auto lg:mx-0"
+                  width={512}
+                  height={640}
+                  className="rounded-2xl shadow-2xl w-full max-w-lg mx-auto"
                   priority
                 />
                 <div className="absolute -bottom-6 -right-6 bg-black p-4 rounded-lg shadow-lg border border-gray-600">
