@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Badge } from '@/components/ui/badge'
-import { Github, Mail, Phone, MapPin, ExternalLink, Code, Database, Globe, Smartphone } from 'lucide-react'
+import { Github, Mail, Phone, MapPin, ExternalLink, Code, Database, Globe, Smartphone, Linkedin } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 import SplitText from './component/teks nama'
 import Image from 'next/image'
@@ -351,6 +351,17 @@ export default function Portfolio() {
                     <h4 className="font-semibold text-white">WhatsApp</h4>
                     <a href="https://wa.me/6282257355759" className="text-white hover:underline" target="_blank" rel="noopener noreferrer">
                       +62 822-5735-5759
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+                    <Linkedin className="w-6 h-6 text-black" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white">LinkedIn</h4>
+                    <a href="https://www.linkedin.com/in/raka-maulana-akbar-341030282" className="text-white hover:underline" target="_blank" rel="noopener noreferrer">
+                      linkedin.com/in/raka-maulana-akbar-341030282
                     </a>
                   </div>
                 </div>
