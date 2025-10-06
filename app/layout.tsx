@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: "Raka Maulana Akbar - Full Stack Developer",
-  description: "Computer Science student at BINUS@Malang specializing in Full Stack Development for web and mobile applications. Passionate about building scalable and user-friendly digital solutions.",
+  description: "Computer Science student at BINUS@Malang specializing in Full Stack Development for web and mobile applications.",
 }
 
 import { ReactNode } from "react"

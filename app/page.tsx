@@ -94,7 +94,7 @@ export default function Portfolio() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black to-gray-900">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-gray-800 z-50">
         <div className="container mx-auto px-6 py-4">
